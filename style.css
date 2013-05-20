@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+body.noScroll { 
+	background-image: url(background.png); 
+	background-attachment: fixed;
+}
+body{ 
+	background-image: url(background.png); 
+	background-attachment: scroll;}
+
+#topPage {
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	
+}
+
+#header {
+	text-align: center;
+	background-color: #333333;
+	padding: 10px 0 10px 0;
+
+}	
+
+#header h1 {
+	font-size: 44px;
+	color: #ffffff;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+#header h3 {
+	font-size: 18px;
+	color: #ffffff;
+}
+
+
+
+#subhead {
+	min-height: 45px;
+	background: #CCCCCC;	
+
+}
+
+#nav ul, #social ul {
+	list-style: none;
+}
+
+
+#nav li {
+	float: left;
+	font-size: 12px;
+	margin: 15px 7px 15px 15px;
+	font-family: arial,sans-serif;
+	font-weight: 700;
+}
+
+#nav li:first-child {
+	margin-left: 40px;
+}
+
+#nav ul li a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#nav li a:hover {
+	color: #FFFFFF;
+}
+
+#social li {
+	float: right;
+	margin: 15px 7px 15px 15px;
+	position: relative;
+	bottom: 10px;
+}
+
+#social li:first-child {
+	margin-right: 40px;
+}
+
+
+
+.insta {
+	border-radius: 88px;
+	height: 32px;
+	width: 32px;
+}
+
+
+#container {
+	min-width: 980px;
+	width: 980px;	
+	margin: auto;
+	margin-top: 150px;
+}
+
+
+#about:hover, #portfolio:hover, #photos:hover, #contact:hover { 
+	line-height: 180px; 
+	color: #575858; 
+} 
+
+#about img, #portfolio img, #contact img {
+	float: left;
+	margin-right: 15px;
+}
+
+#photos img {
+	float: right;
+}
+
+
+#about { 
+	width: 400px; 
+	height: 180px; 
+	line-height: 0px; 
+	color: transparent; 
+	font-size: 40px; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-weight: 300; 
+	text-transform: uppercase; 
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
+	margin: 20 15 20 400;
+} 
+
+#imgAbout {
+	height: 180px;
+	width: 180px;
+	border-radius: 88px;
+	border: solid, 1px, #666666;
+}
+
+#portfolio {
+	width: 415px; 
+	height: 180px; 
+	line-height: 0px; 
+	color: transparent; 
+	font-size: 40px; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-weight: 300; 
+	text-transform: uppercase; 
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
+	margin: 20 15 20 100;
+	position: relative;
+	bottom: 10px;
+	left: 40px;
+}
+
+
+#imgPortfolio {
+	height: 180px;
+	width: 180px;
+	border-radius: 88px;
+	border: solid, 1px, #666666;
+}
+
+
+#photos {
+	width: 400px; 
+	height: 180px; 
+	line-height: 0px; 
+	color: transparent; 
+	font-size: 40px; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-weight: 300; 
+	text-transform: uppercase; 
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
+	margin: 20 15 20 100;
+	position: relative;
+	bottom: 215px;
+	left: 350px;
+}
+
+
+#imgPhotos {
+	height: 180px;
+	width: 180px;
+	border-radius: 88px;
+	border: solid, 1px, #666666;
+}
+
+#photos p {
+	display: inline-block;
+	padding-left: 40px;
+}
+
+
+#contact { 
+	width: 450px; 
+	height: 180px; 
+	line-height: 0px; 
+	color: transparent; 
+	font-size: 40px; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-weight: 300; 
+	text-transform: uppercase; 
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
+	margin: 20 15 20 400;
+	position: relative;
+	bottom: 215px;
+	left: 0px;
+} 
+
+#imgContact {
+	height: 180px;
+	width: 180px;
+	border-radius: 88px;
+	border: solid, 1px, #666666;
+	display: block;
+}
+
+
+#footer {
+	min-height: 30px;	
+	padding: 30px 20px 0 0;
+	background-color: #555;
+}
+
+#footer ul {
+	list-style: none;
+	}
+
+#footer li {
+	color: #999;
+	font-size: 12px;
+	float: right;
+	margin-right: 10px;
+}
+
+
+#footer a {
+	color: #ffffff;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+	color: #369;
+}
+
+
+
+
