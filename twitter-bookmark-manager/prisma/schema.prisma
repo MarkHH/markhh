@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String     @id @default(cuid())
+  clerkId           String     @unique @map("clerk_id")
+  email             String?
+  twitterId         String?    @unique @map("twitter_id")
+  twitterUsername   String?    @map("twitter_username")
+  twitterAccessToken String?  @map("twitter_access_token")
+  twitterRefreshToken String? @map("twitter_refresh_token")
+  lastSyncAt        DateTime?  @map("last_sync_at")
+  stripeCustomerId  String?    @unique @map("stripe_customer_id")
+  subscriptionId    String?    @map("subscription_id")
+  subscriptionStatus String?  @map("subscription_status")
+  planType          String?    @map("plan_type")
+  trialEndsAt       DateTime?  @map("trial_ends_at")
+  createdAt         DateTime   @default(now()) @map("created_at")
+  updatedAt         DateTime   @updatedAt @map("updated_at")
+
+  bookmarks  Bookmark[]
+  categories Category[]
+
+  @@map("users")
+}
+
+model Bookmark {
+  id              String    @id @default(cuid())
+  tweetId         String    @map("tweet_id")
+  userId          String    @map("user_id")
+  authorName      String    @map("author_name")
+  authorUsername  String    @map("author_username")
+  authorAvatar    String?   @map("author_avatar")
+  content         String
+  mediaUrls       String[]  @map("media_urls")
+  tweetCreatedAt  DateTime  @map("tweet_created_at")
+  bookmarkedAt    DateTime  @default(now()) @map("bookmarked_at")
+  embedding       Float[]   @default([])
+  categoryId      String?   @map("category_id")
+  isDeleted       Boolean   @default(false) @map("is_deleted")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@unique([tweetId, userId])
+  @@index([userId, bookmarkedAt(sort: Desc)])
+  @@index([userId, categoryId])
+  @@map("bookmarks")
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String
+  slug      String
+  color     String     @default("#6366f1")
+  userId    String     @map("user_id")
+  isAuto    Boolean    @default(true) @map("is_auto")
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookmarks Bookmark[]
+
+  @@unique([slug, userId])
+  @@map("categories")
+}
