@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { UserProfile, useUser } from "@clerk/nextjs";
+import { useState } from "react";
+import { UserProfile } from "@clerk/nextjs";
 import {
   CreditCard,
   User,
@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 export default function SettingsPage() {
-  const { user } = useUser();
   const [activeTab, setActiveTab] = useState<"account" | "subscription">(
     "account"
   );

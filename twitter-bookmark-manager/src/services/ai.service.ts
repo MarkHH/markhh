@@ -2,9 +2,9 @@ import OpenAI from "openai";
 import type { TwitterBookmark } from "@/types";
 import { slugify, getCategoryColor } from "@/lib/utils";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAI(): OpenAI {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 interface CategorizedBookmark {
   tweetId: string;
@@ -73,7 +73,7 @@ ${tweetsText}
 Return a JSON array with objects containing "index" (number) and "category" (string):`;
 
     try {
-      const response = await openai.chat.completions.create({
+      const response = await getOpenAI().chat.completions.create({
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.3,
@@ -112,7 +112,7 @@ Return a JSON array with objects containing "index" (number) and "category" (str
 
   static async generateEmbedding(text: string): Promise<number[]> {
     try {
-      const response = await openai.embeddings.create({
+      const response = await getOpenAI().embeddings.create({
         model: "text-embedding-3-small",
         input: text,
       });
@@ -133,7 +133,7 @@ Return a JSON array with objects containing "index" (number) and "category" (str
     for (let i = 0; i < texts.length; i += batchSize) {
       const batch = texts.slice(i, i + batchSize);
       try {
-        const response = await openai.embeddings.create({
+        const response = await getOpenAI().embeddings.create({
           model: "text-embedding-3-small",
           input: batch,
         });
